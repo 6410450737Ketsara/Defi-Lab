@@ -278,7 +278,7 @@ contract LiquidationOperator is IUniswapV2Callee {
         
         collateral_WBTC -= repay_WBTC;
 
-        // 2.3 swap remain WBTC to WETH
+        // 2.3 swap
         WBTC.transfer(address(uniswapV2Pair_WBTC_WETH), collateral_WBTC);
         uint amountOut_WETH = getAmountOut(collateral_WBTC, reserve_WBTC_Pool2, reserve_WETH_Pool2);
         uniswapV2Pair_WBTC_WETH.swap(0, amountOut_WETH, address(this), "");
